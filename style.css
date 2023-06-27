@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Ruthie&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+body {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: #162a73;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: normal;
+}
+
+/*Container 3D*/
+.container-3d {
+	width: 250px;
+	height: 400px;
+	perspective: 500px; /*Referencial for 3d Perspective*/
+	border: 1px solid #515668;
+	border-radius: 10px;
+}
+
+/*Card*/
+.card {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	box-shadow: 0 0 4px 2px #665c22;
+	border-radius: 10px;
+	transition: all 2s ease-in-out;
+	transform-style: preserve-3d; /*Force the two faces to rotate together*/
+}
+
+.front,
+.back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	backface-visibility: hidden; /*hide backface*/
+	transition: all 2s ease-in-out;
+	transform-style: preserve-3d; /*to allow 3d on images*/
+
+	background: linear-gradient(
+		129deg,
+		rgb(85, 47, 47) 10%,
+		rgb(85, 38, 38) 14%,
+		rgba(255, 255, 255, 1) 19%,
+		rgb(108, 59, 59) 33%
+	);
+	background-size: 300% 100%;
+}
+
+.front {
+	background-position: left;
+}
+
+.back {
+	background-position: right;
+	font-family: "Lobster", cursive;
+	transform: rotateY(180deg); /*rotate this face*/
+}
+
+/*Content Card*/
+.front-content,
+.back-content {
+	transform: translateZ(70px);
+}
+
+/*Front*/
+.front-content {
+	text-align: center;
+}
+
+.front-content img {
+	width: 70%;
+	border-radius: 60%;
+	margin-top: 30%;
+}
+
+.front-content h1 {
+	font-size: 3rem;
+	font-family: "Ruthie", cursive;
+	text-shadow: 2px 4px 2px #893c01;
+	color: rgb(26, 26, 30);
+	margin: 0;
+	margin-top: 25%;
+}
+
+/*Back*/
+.back-content {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: rgb(81, 0, 255);
+	text-shadow: 1px 3px 2px #000000;
+}
+
+/*Social Icons*/
+.container-social {
+	font-size: 2.5rem;
+	cursor: pointer;
+}
+
+.fab {
+	color: rgb(0, 21, 255);
+	transition: all 0.5s;
+}
+
+.fab.fa-discord {
+	position: relative;
+	top: 2px;
+}
+
+a {
+	color: black;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	width: 90%;
+	background-image: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0),
+		rgb(47, 0, 255),
+		rgba(0, 0, 0, 0)
+	);
+}
+
+.about {
+	margin: 100px;
+	font-family: "Lobster", cursive;
+	font-size: 2rem;
+	color: rgb(0, 26, 255);
+	text-shadow: 1px 3px 2px #000000;
+	text-align: center;
+}
+
+/*Hover Transition*/
+.container-3d:hover .card {
+	transform: rotateY(180deg); /*rotate card when hover on container*/
+}
+
+.container-3d:hover .front {
+	background-position: right;
+}
+
+.container-3d:hover .back {
+	background-position: left;
+}
+
+.fab:hover {
+	transform: scale(1.2);
+}
+
+.fa-linkedin:hover {
+	color: #004182;
+}
+
+.fa-github-square:hover {
+	color: white;
+}
+
+.fa-youtube-square:hover {
+	color: #ff0000;
+}
